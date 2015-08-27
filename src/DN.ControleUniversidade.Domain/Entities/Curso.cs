@@ -40,7 +40,6 @@ namespace DN.ControleUniversidade.Domain.Entities
             Descricao = descricao;
         }
 
-
         public void AtivarCurso()
         {
             var fiscal = new CursoEstaAptoParaAtivacao();
