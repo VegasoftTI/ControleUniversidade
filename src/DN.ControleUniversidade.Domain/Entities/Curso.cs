@@ -38,6 +38,10 @@ namespace DN.ControleUniversidade.Domain.Entities
         public void AtualizarCurso(string descricao) 
         {
             Descricao = descricao;
+            DataAtualizacao = DateTime.Now;
+
+            var fiscal = new CursoEstaAptoParaAtualizacao();
+            ResultadoValidacao = fiscal.Validar(this);
         }
 
         public void AtivarCurso()
@@ -51,7 +55,7 @@ namespace DN.ControleUniversidade.Domain.Entities
 
         public void DesativarCurso() 
         {
-            //Não pode ter nenhuma turma em curso ara desativar
+            //Não pode ter nenhuma turma em curso para desativar
             Ativo = false;
         }
     }

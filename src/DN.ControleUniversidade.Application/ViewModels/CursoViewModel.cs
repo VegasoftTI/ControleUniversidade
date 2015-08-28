@@ -14,6 +14,7 @@ namespace DN.ControleUniversidade.Application.ViewModels
         public Guid CursoId { get; set; }
 
         [Display(Name="Nome do Curso")]
+        [Required(ErrorMessage="O campo Nome do Curso é obrigatório")]
         public string Descricao { get; set; }
 
         [Display(Name="Situação")]

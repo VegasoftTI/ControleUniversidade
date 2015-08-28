@@ -42,9 +42,28 @@ namespace DN.ControleUniversidade.Application
           
         }
 
+        public CursoViewModel ObterCursoPorId(Guid cursoId) 
+        {
+            var cursoDb = _cursoService.ObterPorId(cursoId);
+
+            return CursoMapper.CursoDomainParaCursoViewModel(cursoDb);
+        }
+
         public void Dispose()
         {
             _cursoService.Dispose();
+        }
+
+
+        public ValidationAppResult AtualizarCurso(CursoViewModel cursoViewModel)
+        {
+            BeginTransaction();
+            var validationAppResult = DomainToApplicationResult(_cursoService.AtualizarCurso(cursoViewModel.CursoId, cursoViewModel.Descricao, cursoViewModel.Ativo));
+
+            if (validationAppResult.IsValid)
+                Commit();
+
+            return validationAppResult;  
         }
     }
 }

@@ -49,7 +49,6 @@
     <Compile Include="Services\CursoService.cs" />
     <Compile Include="Specification\CursoSpecs\DescricaoDeveSerUnicaSpec.cs" />
     <Compile Include="Specification\CursoSpecs\PossuiNumeroMinimoSemestresSpec.cs" />
-    <Compile Include="Specification\CursoSpecs\CursoPossuiSemestresSpec.cs" />
     <Compile Include="Specification\CursoSpecs\DescricaoEstaValidaSpec.cs" />
     <Compile Include="Specification\MateriaSpecs\DescricaoEstaValidaSpecification.cs" />
     <Compile Include="Validation\Base\FiscalBase.cs" />

@@ -9,6 +9,9 @@ namespace DN.ControleUniversidade.Application.Interfaces
     {
         ValidationAppResult AdicionarNovoCurso(CursoViewModel cursoViewModel);
 
+        ValidationAppResult AtualizarCurso(CursoViewModel cursoViewModel);
+
         IEnumerable<CursoViewModel> ObterTodos();
+        CursoViewModel ObterCursoPorId(Guid cursoId);
     }
 }

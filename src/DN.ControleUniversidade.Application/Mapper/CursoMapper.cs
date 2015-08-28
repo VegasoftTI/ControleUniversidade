@@ -31,6 +31,18 @@ namespace DN.ControleUniversidade.Application.Mapper
              return new Curso(cursoViewModel.Descricao);
         }
 
+        public static CursoViewModel CursoDomainParaCursoViewModel(Curso curso)
+        {
+            return new CursoViewModel
+            {
+                CursoId = curso.CursoId,
+                Descricao = curso.Descricao,
+                DataCadastro = curso.DataCadastro,
+                DataAtualizacao = curso.DataAtualizacao,
+                Ativo = curso.Ativo
+            };
+        }
+
      
     }
 }

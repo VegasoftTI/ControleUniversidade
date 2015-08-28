@@ -58,5 +58,17 @@ namespace DN.ControleUniversidade.Domain.Tests.Entities
             Assert.IsFalse(curso.IsValid);
             Assert.IsTrue(curso.ResultadoValidacao.Erros.Any(e => e.Message == "O curso deve possuir pelo menos 4 semestres"));
         }
+
+        [TestMethod]
+        [TestCategory("Entity Curso")]
+        public void Na_Atualizacao_Do_Curso_Deve_Alterar_DataAtualizacao()
+        {
+            var curso = new Curso("Ciências da Computação");
+            DateTime dataAtuzalicaoCriacao = curso.DataAtualizacao;
+            System.Threading.Thread.Sleep(2000);
+            curso.AtualizarCurso("Novo Nome de Curso");
+
+            Assert.IsTrue(dataAtuzalicaoCriacao != curso.DataAtualizacao);
+        }
     }
 }
