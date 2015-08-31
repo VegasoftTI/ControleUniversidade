@@ -23,25 +23,10 @@ namespace DN.ControleUniversidade.Domain.Tests.Entities
             Assert.AreEqual(validacaoEsperada, validacaoQuebrada);
         }
 
-        [TestMethod]
-        [TestCategory("Entity Curso")]
-        public void NaoDeveAceitarCursoSemSemestres()
-        {
-            var curso = new Curso("Análise de Sistemas");
-
-            Assert.IsTrue(curso.IsValid);
-
-            curso.AtivarCurso();
-
-            Assert.IsFalse(curso.IsValid);
-            Assert.IsTrue(curso.ResultadoValidacao.Erros.Any(e => e.Message == "O curso não possui nenhum semestre"));
-            Assert.IsTrue(curso.ResultadoValidacao.Erros.Any(e => e.Message == "O curso deve possuir pelo menos 4 semestres"));
-            Assert.IsTrue(curso.ResultadoValidacao.Erros.Count() == 2);
-        }
 
         [TestMethod]
         [TestCategory("Entity Curso")]
-        public void NaoDeveAceitarCursoComMenosDeQuatroSemestres()
+        public void Não_Deve_Aceitar_Curso_Com_Menos_De_Quatro_Semestres()
         {
             var curso = new Curso("Ciências da Computação");
             Semestre semestre = new Semestre();
@@ -53,10 +38,10 @@ namespace DN.ControleUniversidade.Domain.Tests.Entities
             Assert.IsTrue(curso.IsValid);
 
             curso.AtivarCurso();
-            Assert.IsTrue(curso.ResultadoValidacao.Erros.Count() == 1);
+            Assert.IsTrue(curso.ResultadoValidacao.Erros.Count() > 0);
             Assert.IsFalse(curso.Ativo);
             Assert.IsFalse(curso.IsValid);
-            Assert.IsTrue(curso.ResultadoValidacao.Erros.Any(e => e.Message == "O curso deve possuir pelo menos 4 semestres"));
+            Assert.IsTrue(curso.ResultadoValidacao.Erros.Any(e => e.Message == "O curso deve possuir pelo menos 4 semestres para poder ser ativado"));
         }
 
         [TestMethod]

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DN.ControleUniversidade.Infra.Data.Repositories
 {
-    public class CursoRepository: RepositoryBase<Curso, UniversidadeContext>, ICursoRepository
+    public class CursoRepository : RepositoryBase<Curso, UniversidadeContext>, ICursoRepository
     {
         public Curso ObterPorDescricao(string descricao)
         {

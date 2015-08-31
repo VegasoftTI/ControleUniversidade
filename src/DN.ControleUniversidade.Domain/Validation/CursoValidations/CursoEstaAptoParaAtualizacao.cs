@@ -1,4 +1,5 @@
 ﻿using DN.ControleUniversidade.Domain.Entities;
+using DN.ControleUniversidade.Domain.Interfaces.Repositories;
 using DN.ControleUniversidade.Domain.Specification.CursoSpecs;
 using DN.ControleUniversidade.Domain.Validation.Base;
 using System;

@@ -60,26 +60,28 @@ namespace DN.ControleUniversidade.Domain.Services
         }
 
 
-        public ValidationResult AtualizarCurso(Guid cursoId, string descricao, bool ativo)
+        public ValidationResult AtualizarCurso(Guid cursoId, string descricao)
         {
             var resultadoValidacao = new ValidationResult();
-            var curso = _cursoRepository.GetById(cursoId);
+            var cursoDb = _cursoRepository.GetById(cursoId);
 
-            curso.AtualizarCurso(descricao);
+            cursoDb.AtualizarCurso(descricao);
 
-            if (ativo) 
-                curso.AtivarCurso();
-            else
-                curso.DesativarCurso();
-
-            if (!curso.IsValid)
+            if (!cursoDb.IsValid)
             {
-                resultadoValidacao.AdicionarErro(curso.ResultadoValidacao);
+                resultadoValidacao.AdicionarErro(cursoDb.ResultadoValidacao);
                 return resultadoValidacao;
             }
 
-            _cursoRepository.Update(curso);
+            var resultadoConsistencia = new CursoEstaConsistenteParaAtualizar(_cursoRepository).Validar(cursoDb);
 
+            if (!resultadoConsistencia.IsValid)
+            {
+                resultadoValidacao.AdicionarErro(resultadoConsistencia);
+                return resultadoValidacao;
+            }
+
+            _cursoRepository.Update(cursoDb);
 
             return resultadoValidacao;
         }

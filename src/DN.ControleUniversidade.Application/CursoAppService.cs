@@ -58,7 +58,7 @@ namespace DN.ControleUniversidade.Application
         public ValidationAppResult AtualizarCurso(CursoViewModel cursoViewModel)
         {
             BeginTransaction();
-            var validationAppResult = DomainToApplicationResult(_cursoService.AtualizarCurso(cursoViewModel.CursoId, cursoViewModel.Descricao, cursoViewModel.Ativo));
+            var validationAppResult = DomainToApplicationResult(_cursoService.AtualizarCurso(cursoViewModel.CursoId, cursoViewModel.Descricao));
 
             if (validationAppResult.IsValid)
                 Commit();

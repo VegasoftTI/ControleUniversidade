@@ -35,7 +35,7 @@ namespace DN.ControleUniversidade.Domain.Entities
             get { return ResultadoValidacao.IsValid; }
         }
 
-        public void AtualizarCurso(string descricao) 
+        public void AtualizarCurso(string descricao)
         {
             Descricao = descricao;
             DataAtualizacao = DateTime.Now;
@@ -53,10 +53,10 @@ namespace DN.ControleUniversidade.Domain.Entities
                 Ativo = true;
         }
 
-        public void DesativarCurso() 
+        public void DesativarCurso()
         {
-            //Não pode ter nenhuma turma em curso para desativar
-            Ativo = false;
+            if (Ativo)     //Não pode ter nenhuma turma em curso para desativar
+                Ativo = false;
         }
     }
 }

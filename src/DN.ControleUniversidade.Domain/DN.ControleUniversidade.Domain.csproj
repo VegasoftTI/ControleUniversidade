@@ -47,6 +47,7 @@
     <Compile Include="Interfaces\Validation\ISelfValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CursoService.cs" />
+    <Compile Include="Specification\CursoSpecs\PossuiMesmaDescricaoParaMesmoIdSpec.cs" />
     <Compile Include="Specification\CursoSpecs\DescricaoDeveSerUnicaSpec.cs" />
     <Compile Include="Specification\CursoSpecs\PossuiNumeroMinimoSemestresSpec.cs" />
     <Compile Include="Specification\CursoSpecs\DescricaoEstaValidaSpec.cs" />
@@ -56,6 +57,8 @@
     <Compile Include="Validation\CursoValidations\CursoEstaAptoParaAtualizacao.cs" />
     <Compile Include="Validation\CursoValidations\CursoEstaAptoParaCadastro.cs" />
     <Compile Include="Validation\CursoValidations\CursoEstaConsistente.cs" />
+    <Compile Include="Validation\CursoValidations\CursoEstaConsistenteParaAtualizar.cs" />
+    <Compile Include="Validation\CursoValidations\CursoPodeSerDesativado.cs" />
     <Compile Include="Validation\MateriaValidations\MateriaEstaAptaParaCadastro.cs" />
     <Compile Include="Validation\Regra.cs" />
     <Compile Include="ValueObjects\ValidationError.cs" />
